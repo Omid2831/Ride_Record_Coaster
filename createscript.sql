@@ -21,7 +21,7 @@ use `rollercoaster-2408c`;
 -- ***********************
 -- Version             Date                Authour          Description
 -- *******             ****                *******          ***********
--- 1.0.0.0              13-11-2024          OmidMhr         Achtbaan of EU 
+-- 1.0.0.0              13-11-2024          OmidMhr         rollercoaster of EU 
 -- ***********************
 create table RollercoasterOfEu (
     Id smallint unsigned not null AUTO_INCREMENT,
