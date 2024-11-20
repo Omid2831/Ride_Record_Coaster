@@ -64,8 +64,41 @@ values
         "Spain",
         180,
         112,
-        1, 
+        1,
         null,
         sysdate(6),
         sysdate(6)
-    );
+    ),
+    (
+        "Hyperion",
+        "Energyland",
+        "Polen",
+        142,
+        77,
+        1,
+        null,
+        sysdate(6),
+        sysdate(6)
+    ),
+    (
+        "Shambhala",
+        "PortAventura",
+        "Spain",
+        134,
+        76,
+        1,
+         null,
+        sysdate(6),
+        sysdate(6)
+    ),
+    (
+     "Schwur des Kärnan",
+     "Hansa-Park",
+        "Germany",
+        127,
+        73,
+        1,
+         null,
+        sysdate(6),
+        sysdate(6)
+    )
