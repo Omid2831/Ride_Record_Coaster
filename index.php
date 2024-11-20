@@ -15,21 +15,60 @@ $dsn = "mysql:host=$server;
         charset=UTF8";
 
 /**
- * Create a new PDO-Objects 
+ * Create a new PDO-Objects so we can connect to the database and Mysql 
+ * and for more Enhancements we use the PDO-Object
  */
 $pdo = new PDO($dsn, $Database_username, $Database_password);
+
+/**
+ * Create a select-query that we want to execute on the database
+ */
+$query = "SELECT REC.Name_ID
+                 ,REC.park
+                 ,REC.country
+                 ,REC.topspeed
+                 ,REC.height
+
+ FROM RollercoasterOfEu AS RCE
+ ORDER BY  REC.HEIGHT ASC";
+/**
+ * With the method prepare in the PDO-Object
+ *  we can prepare the query to execute it
+ */
+$stmt = $pdo->prepare($query);
+/**
+ * Execute the Query 
+ */
+$statment -> execute();
+
+/**
+ * Get the selected records as objects in an array
+* and put them in a variable $result
+ */
+
+$result = $statement->fetchAll(PDO::FETCH_OBJ);
+/**
+ *We'll show the results on the screen so we know what we
+* retrieved from the database
+ */
+
+ var_dump($result);
+
 
 ?>
 
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
     <h1>Highest Parks in EU</h1>
 
     <table class="table table-hover">
@@ -41,16 +80,19 @@ $pdo = new PDO($dsn, $Database_username, $Database_password);
             <td>Height</td>
         </thead>
         <tbody>
-    <tr>
-        <td>Test Rollercoster</td>
-        <td>test Park</td>
-        <td>Test Country</td>
-        <td>Test Speed</td>
-        <td>Test Height</td>
-    </tr>
+            <tr>
+                <td>Test Rollercoster</td>
+                <td>test Park</td>
+                <td>Test Country</td>
+                <td>Test Speed</td>
+                <td>Test Height</td>
+            </tr>
         </tbody>
     </table>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
