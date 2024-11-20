@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 =======
 Rollercoaster of EU Database Project
 --
