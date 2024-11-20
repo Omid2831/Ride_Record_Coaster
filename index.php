@@ -9,12 +9,22 @@
   <body>
     <h1>Highest Parks in EU</h1>
 
-    <table>
+    <table class="table table-hover">
         <thead>
-
+            <th>Name of Rollercoster</th>
+            <th>Name of the Park</th>
+            <td>Country</td>
+            <td>TopSpeed</td>
+            <td>Height</td>
         </thead>
         <tbody>
-            
+    <tr>
+        <td>Test Rollercoster</td>
+        <td>test Park</td>
+        <td>Test Country</td>
+        <td>Test Speed</td>
+        <td>Test Height</td>
+    </tr>
         </tbody>
     </table>
 
