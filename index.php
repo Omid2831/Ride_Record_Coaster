@@ -1,3 +1,26 @@
+<?php
+
+/**
+ * we take out the information out of the config.php
+ */
+include('Config/Config.php');
+
+/**
+ * Create a dsn ( datasource-string) to log in 
+ * on the DataBase server en database
+ */
+
+$dsn = "mysql:host=$server;
+        dbname=$Database_username;
+        charset=UTF8";
+
+/**
+ * Create a new PDO-Objects 
+ */
+$pdo = new PDO($dsn, $Database_username, $Database_password);
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
