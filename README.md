@@ -26,8 +26,6 @@ Aim: Populate the table with initial data.
 Description: Adds a sample entry for "Red Force" in Spain, demonstrating how roller coaster records are structured within the database.
 --
 Each step builds upon the last, laying the groundwork for effective CRUD operations (Create, Read, Update, Delete) within the rollercoaster-2408c database.
-<<<<<<< HEAD
->>>>>>> 
->>>>>>> Rollercoaster of EU Database Project
-=======
+
+
 
