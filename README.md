@@ -1,5 +1,3 @@
-
-=======
 Rollercoaster of EU Database Project
 --
 Version: 1.0.0.0
@@ -33,4 +31,3 @@ Each step builds upon the last, laying the groundwork for effective CRUD operati
 >>>>>>> Rollercoaster of EU Database Project
 =======
 
->>>>>>> 7ce7c0fa2698dbd1e1c335a8708da65347fd9921
