@@ -1,4 +1,4 @@
-Rollercoaster of EU Database Project
+A rollercoaster of EU Database Project
 --
 Version: 1.0.0.0
 Date: 13-11-2024
