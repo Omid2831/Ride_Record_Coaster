@@ -23,36 +23,37 @@ $pdo = new PDO($dsn, $Database_username, $Database_password);
 /**
  * Create a select-query that we want to execute on the database
  */
-$query = "SELECT REC.Name_ID
+$query = "SELECT  REC.Name_ID
                  ,REC.park
                  ,REC.country
                  ,REC.topspeed
                  ,REC.height
 
- FROM RollercoasterOfEu AS RCE
+ FROM RollercoasterOfEu AS REC
  ORDER BY  REC.HEIGHT ASC";
 /**
  * With the method prepare in the PDO-Object
  *  we can prepare the query to execute it
  */
-$stmt = $pdo->prepare($query);
+$statement = $pdo->prepare($query);
 /**
  * Execute the Query 
  */
-$statment -> execute();
+$statement->execute();
 
 /**
  * Get the selected records as objects in an array
-* and put them in a variable $result
+ * and put them in a variable $result
  */
 
 $result = $statement->fetchAll(PDO::FETCH_OBJ);
 /**
  *We'll show the results on the screen so we know what we
-* retrieved from the database
+ * retrieved from the database
  */
 
- var_dump($result);
+//here are we gonna show the results on the screen but for developers!
+//var_dump($result);
 
 
 ?>
@@ -69,26 +70,45 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
 </head>
 
 <body>
-    <h1>Highest Parks in EU</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <h1 style="color:rgb(2,15,142);">Highest Parks in EU</h1>
+            </div>
+            <div class="col-2"></div>
 
-    <table class="table table-hover">
-        <thead>
-            <th>Name of Rollercoster</th>
-            <th>Name of the Park</th>
-            <td>Country</td>
-            <td>TopSpeed</td>
-            <td>Height</td>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Test Rollercoster</td>
-                <td>test Park</td>
-                <td>Test Country</td>
-                <td>Test Speed</td>
-                <td>Test Height</td>
-            </tr>
-        </tbody>
-    </table>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+            <div class="col-8">
+                <table class="table table-hover">
+                    <thead>
+                        <th>Name of Rollercoster</th>
+                        <th>Name of the Park</th>
+                        <td>Country</td>
+                        <td>TopSpeed</td>
+                        <td>Height</td>
+                    </thead>
+                    <tbody>
+                        <!--here we are going to add foreach to set the databases-->
+                        <?php
+                        foreach ($result as $rollercoaster) {
+                            echo " <tr>
+                <td>$rollercoaster->Name_ID</td>
+                <td>$rollercoaster->park</td>
+                <td>$rollercoaster->country</td>
+                <td>$rollercoaster->topspeed</td>
+                <td>$rollercoaster->height</td>
+            </tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
