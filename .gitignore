@@ -1,2 +1,4 @@
 # Ignore the Config.php file
 datainfo/Config.php
+#Ignore the Class.php file 
+class.php
