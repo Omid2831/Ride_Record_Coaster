@@ -3,7 +3,7 @@
 /**
  * we take out the information out of the config.php
  */
-include('Config/Config.php');
+include('datainfo/Config.php');
 
 /**
  * Create a dsn ( datasource-string) to log in 
