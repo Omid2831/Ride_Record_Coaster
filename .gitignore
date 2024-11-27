@@ -1,2 +1,2 @@
-//Ignore the file Config.php
-datainfo/
+# Ignore the Config.php file
+datainfo/Config.php
