@@ -92,16 +92,28 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                     <tbody>
                         <!--here we are going to add foreach to set the databases-->
                         <?php
-                        foreach ($result as $rollercoaster) {
-                            echo " <tr>
+                      /*foreach ($result as $rollercoaster) 
+                        {
+                 echo " <tr>
                 <td>$rollercoaster->Name_ID</td>
                 <td>$rollercoaster->park</td>
                 <td>$rollercoaster->country</td>
                 <td>$rollercoaster->topspeed</td>
                 <td>$rollercoaster->height</td>
-            </tr>";
-                        }
+                        </tr>";
+                        }*/
                         ?>
+
+                        <?php foreach($result as $rollercoaster) : ?>
+                            <tr>
+                              <td><?= $rollercoaster->Name_ID ?></td>
+                              <td><?= $rollercoaster->park ?></td>
+                              <td><?= $rollercoaster->country ?></td>
+                              <td><?= $rollercoaster->topspeed ?></td>
+                              <td><?= $rollercoaster->height ?></td>
+                            </tr> 
+                    <?php endforeach; ?>
+                        
                     </tbody>
                 </table>
             </div>
