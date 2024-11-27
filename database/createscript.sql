@@ -55,7 +55,7 @@ insert into
         IsActive,
         Remark,
         CreatedDate,
-        UpdatedDate,
+        UpdatedDate
     )
 values
     (
