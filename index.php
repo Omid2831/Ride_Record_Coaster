@@ -67,13 +67,15 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
+    <div class="container mt-3">
+        <div class="row ">
             <div class="col-2"></div>
-            <div class="col-8">
+            <div class="col-8 text-primary">
                 <h1 style="color:rgb(2,15,142);">Highest Parks in EU</h1>
             </div>
             <div class="col-2"></div>
@@ -81,6 +83,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
             <div class="col-2"></div>
             <div class="col-2"></div>
             <div class="col-8">
+                Adding new rollercoaster: <a href="./Create.php"><i class="bi bi-plus-square-fill"></i></a>
                 <table class="table table-hover">
                     <thead>
                         <th>Name of Rollercoster</th>
@@ -104,7 +107,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                         }*/
                         ?>
 
-                        <?php foreach($result as $rollercoaster) : ?>
+                        <?php foreach($result as $rollercoaster): ?>
                             <tr>
                               <td><?= $rollercoaster->Name_ID ?></td>
                               <td><?= $rollercoaster->park ?></td>
