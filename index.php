@@ -77,14 +77,13 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
         <div class="row ">
             <div class="col-2"></div>
             <div class="col-8 text-primary">
-                <h1 style="color:rgb(2,15,142);">Highest Parks in EU</h1>
+                <h1 class=" text-center">Highest Parks in EU</h1>
             </div>
             <div class="col-2"></div>
 
-            <div class="col-2"></div>
-            <div class="col-2"></div>
-            <div class="col-8">
-                Adding new rollercoaster: <a href="./Create.php"><i class="bi bi-plus-square-fill"></i></a>
+            <div class="col-3"></div>
+            <div class="col-6"> Adding new rollercoaster: <a href="./Create.php"><i
+                        class="bi bi-plus-square-fill"></i></a>
                 <table class="table table-hover">
                     <thead>
                         <th>Name of Rollercoster</th>
@@ -119,11 +118,11 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                                 <td><?= $rollercoaster->topspeed ?></td>
                                 <td><?= $rollercoaster->height ?></td>
                                 <td class="text-center">
-                                    <a href="./update.php?Id=<?= $rollercoaster->Id?>" class="text-primary">
+                                    <a href="./update.php?Id=<?= $rollercoaster->Id ?>" class="text-primary">
                                         <i class="bi bi-pencil-square"></i></a>
                                 </td>
                                 <td class="text-center ">
-                                    <a href="./delete.php?Id=<?= $rollercoaster->Id?>" class=" text text-danger">
+                                    <a href="./delete.php?Id=<?= $rollercoaster->Id ?>" class=" text text-danger">
                                         <i class="bi bi-x-square-fill"></i>
                                 </td>
                                 </a>
@@ -132,6 +131,9 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
 
                     </tbody>
                 </table>
+            </div>
+            <div class="col-3">
+
             </div>
         </div>
 
