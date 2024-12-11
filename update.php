@@ -1,51 +1,65 @@
 <?php
- /**
-     * we take out the information out of the config.php
-     */
-    include('datainfo/Config.php');
+/**
+ * we take out the information out of the config.php
+ */
+include('datainfo/Config.php');
 
-    /**
-     * Create a dsn ( datasource-string) to log in 
-     * on the DataBase server en database
-     */
 
-    $dsn = "mysql:host=$server;
+// Get the Id from the URL
+$id = $_GET['Id'];
+
+/**
+ * Create a dsn ( datasource-string) to log in 
+ * on the DataBase server en database
+ */
+
+$dsn = "mysql:host=$server;
         dbname=$Database_username;
         charset=UTF8";
 
-    /**
-     * Create a new PDO-Objects so we can connect to the database and Mysql 
-     * and for more Enhancements we use the PDO-Object
-     */
-    $pdo = new PDO($dsn, $Database_username, $Database_password);
+/**
+ * Create a new PDO-Objects so we can connect to the database and Mysql 
+ * and for more Enhancements we use the PDO-Object
+ */
+$pdo = new PDO($dsn, $Database_username, $Database_password);
+
+// Create a new PDO object to connect to the database
+$pdo = new PDO($dsn, $Database_username, $Database_password);
 
 
 if (isset($_POST['submit'])) {
 
-    $sql = "SELECT   REC.Id =:Id
-    SET
-    REC.Name_ID = :Name_ID
-    ,REC.park = :park
-    ,REC.country = :counrty
-    ,REC.topspeed = :topspeed
-    ,REC.height = :height
+    // Prepare the SQL update statement
+    $sql = "UPDATE RollercoasterOfEu AS REC
+SET
+    REC.Name_ID = :Name_ID,
+    REC.park = :park,
+    REC.country = :country,
+    REC.topspeed = :topspeed,
+    REC.height = :height
+WHERE REC.Id = :Id";
 
-   FROM RollercoasterOfEu AS REC
-   WHERE  REC.Id = :Id";
-    /* method prepare in de PDO */
     $statement = $pdo->prepare($sql);
+
+    // Bind values
+    $statement->bindValue(':Id', $_POST['Id'], PDO::PARAM_INT);
+    $statement->bindValue(':Name_ID', $_POST['Name_ID'], PDO::PARAM_STR);
+    $statement->bindValue(':park', $_POST['park'], PDO::PARAM_STR);
+    $statement->bindValue(':country', $_POST['country'], PDO::PARAM_STR);
+    $statement->bindValue(':topspeed', $_POST['topspeed'], PDO::PARAM_INT);
+    $statement->bindValue(':height', $_POST['height'], PDO::PARAM_INT);
 
     $statement->bindValue(':Id', $_GET['Id'], PDO::PARAM_INT);
 
     /* EXECUTE THE CODE */
     $statement->execute();
 
-    
-header('Refresh:2; url=index.php');
+
+    header('Refresh:70; url=index.php');
 } else {
 
 
-   
+
     /* Creating a sql that gets the record of the table with the id in the url */
 
     $sql = "SELECT   REC.Id
@@ -58,19 +72,13 @@ header('Refresh:2; url=index.php');
                 FROM RollercoasterOfEu AS REC
                 WHERE  REC.Id = :Id";
 
-    /* method prepare in de PDO */
+    // Prepare the statement
     $statement = $pdo->prepare($sql);
-
-    $statement->bindValue(':Id', $_GET['Id'], PDO::PARAM_INT);
-
-    /* EXECUTE THE CODE */
+    $statement->bindValue(':Id', $id, PDO::PARAM_INT);
     $statement->execute();
 
-
-    /* get the result by fetching it */
+    // Fetch the result
     $result = $statement->fetch(PDO::FETCH_OBJ);
-    
-    
 }
 ?>
 
@@ -86,7 +94,7 @@ header('Refresh:2; url=index.php');
 </head>
 
 <body>
-    <div class="container">
+    <div class="container ">
 
         <div class="row" style="display:<?= $display ?? 'none'; ?>">
             <div class="col-3"></div>
@@ -100,15 +108,14 @@ header('Refresh:2; url=index.php');
 
         <div class="row">
             <div class="col-3"></div>
-            <div class="col-6 text-primary">
-                <h3>changes has been done </h3>
+            <div class="col-6 text-primary text-center">
+                <h3 class="text-center">Modify your table</h3>
             </div>
             <div class="col-3"></div>
         </div>
 
         <div class="col-3"></div>
-        <div class="col-3"></div>
-        <div class="col-6">
+        <div class="col-6 offset-md-3">
             <form action="update.php" method="POST">
                 <div class="mb-3">
                     <label for="nameRoleerCoaster" class="form-label">name of the rollercoaster</label>
@@ -119,7 +126,7 @@ header('Refresh:2; url=index.php');
                 <div class="mb-3">
                     <label for="nameOfthePark" class="form-label">Name of the park</label>
                     <input name="park" type="text" class="form-control" id="nameOfthePark" aria-describedby="Park"
-                        placeholder="Enter the name of the park" value="<?=$result->park?>">
+                        placeholder="Enter the name of the park" value="<?= $result->park ?>">
                 </div>
                 <div class="mb-3">
                     <label for="nameOftheCountry" class="form-label">Name of the country:</label>
@@ -137,14 +144,15 @@ header('Refresh:2; url=index.php');
                     <input name="height" type="number" min="0" max="255" class="form-control" id="heights"
                         aria-describedby="heights" placeholder="Enter the heights" value="<?= $result->height ?>">
                 </div>
-                
-                <input type="hidden" name="Id" value="<?= $result->Id?>">
+
+                <input type="hidden" name="Id" value="<?= $result->Id ?>">
 
                 <div class="d-grid gap-2">
                     <button name="submit" type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </div>
             </form>
         </div>
+        <div class="col-3 "></div>
 
     </div>
 
