@@ -23,7 +23,8 @@ $pdo = new PDO($dsn, $Database_username, $Database_password);
 /**
  * Create a select-query that we want to execute on the database
  */
-$query = "SELECT  REC.Name_ID
+$query = "SELECT  REC.Id
+                 ,REC.Name_ID
                  ,REC.park
                  ,REC.country
                  ,REC.topspeed
@@ -67,8 +68,8 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -88,35 +89,47 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                     <thead>
                         <th>Name of Rollercoster</th>
                         <th>Name of the Park</th>
-                        <td>Country</td>
-                        <td>TopSpeed</td>
-                        <td>Height</td>
+                        <th>Country</th>
+                        <th>TopSpeed</th>
+                        <th>Height</th>
+                        <th>UPDATE</th>
+                        <th>DELETE</th>
+
                     </thead>
                     <tbody>
                         <!--here we are going to add foreach to set the databases-->
                         <?php
-                      /*foreach ($result as $rollercoaster) 
-                        {
-                 echo " <tr>
-                <td>$rollercoaster->Name_ID</td>
-                <td>$rollercoaster->park</td>
-                <td>$rollercoaster->country</td>
-                <td>$rollercoaster->topspeed</td>
-                <td>$rollercoaster->height</td>
-                        </tr>";
-                        }*/
+                        /*foreach ($result as $rollercoaster) 
+                          {
+                   echo " <tr>
+                  <td>$rollercoaster->Name_ID</td>
+                  <td>$rollercoaster->park</td>
+                  <td>$rollercoaster->country</td>
+                  <td>$rollercoaster->topspeed</td>
+                  <td>$rollercoaster->height</td>
+                          </tr>";
+                          }*/
                         ?>
 
-                        <?php foreach($result as $rollercoaster): ?>
+                        <?php foreach ($result as $rollercoaster): ?>
                             <tr>
-                              <td><?= $rollercoaster->Name_ID ?></td>
-                              <td><?= $rollercoaster->park ?></td>
-                              <td><?= $rollercoaster->country ?></td>
-                              <td><?= $rollercoaster->topspeed ?></td>
-                              <td><?= $rollercoaster->height ?></td>
-                            </tr> 
-                    <?php endforeach; ?>
-                        
+                                <td><?= $rollercoaster->Name_ID ?></td>
+                                <td><?= $rollercoaster->park ?></td>
+                                <td><?= $rollercoaster->country ?></td>
+                                <td><?= $rollercoaster->topspeed ?></td>
+                                <td><?= $rollercoaster->height ?></td>
+                                <td class="text-center">
+                                    <a href="./update.php?Id=<?= $rollercoaster->Id?>" class="text-primary">
+                                        <i class="bi bi-pencil-square"></i></a>
+                                </td>
+                                <td class="text-center ">
+                                    <a href="./delete.php?Id=<?= $rollercoaster->Id?>" class=" text text-danger">
+                                        <i class="bi bi-x-square-fill"></i>
+                                </td>
+                                </a>
+                            </tr>
+                        <?php endforeach; ?>
+
                     </tbody>
                 </table>
             </div>
