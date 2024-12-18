@@ -30,6 +30,7 @@ create table RollercoasterOfEu (
     country varchar(50) not null,
     topspeed tinyint unsigned not null,
     height tinyint unsigned not null,
+    built_Year date not null,
     IsActive bit not null default 1,
     Remark varchar(255) null default null,
     CreatedDate datetime(6) not null,
@@ -52,6 +53,7 @@ insert into
         country,
         topspeed,
         height,
+        built_year,
         IsActive,
         Remark,
         CreatedDate,
@@ -64,6 +66,7 @@ values
         "Spain",
         180,
         112,
+        "1998-12-04",
         1,
         null,
         sysdate(6),
@@ -75,6 +78,7 @@ values
         "Polen",
         142,
         77,
+        "2001-11-14",
         1,
         null,
         sysdate(6),
@@ -86,6 +90,7 @@ values
         "Spain",
         134,
         76,
+        "2008-02-24",
         1,
          null,
         sysdate(6),
@@ -97,9 +102,10 @@ values
         "Germany",
         127,
         73,
+        "1995-01-18",
         1,
          null,
         sysdate(6),
         sysdate(6)
-    )
+    );
     

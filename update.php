@@ -5,9 +5,6 @@
 include('datainfo/Config.php');
 
 
-// Get the Id from the URL
-$id = $_GET['Id'];
-
 /**
  * Create a dsn ( datasource-string) to log in 
  * on the DataBase server en database
@@ -23,10 +20,6 @@ $dsn = "mysql:host=$server;
  */
 $pdo = new PDO($dsn, $Database_username, $Database_password);
 
-// Create a new PDO object to connect to the database
-$pdo = new PDO($dsn, $Database_username, $Database_password);
-
-
 if (isset($_POST['submit'])) {
 
     // Prepare the SQL update statement
@@ -36,7 +29,9 @@ SET
     REC.park = :park,
     REC.country = :country,
     REC.topspeed = :topspeed,
-    REC.height = :height
+    REC.height = :height,
+    REC.built_year = :built_year
+
 WHERE REC.Id = :Id";
 
     $statement = $pdo->prepare($sql);
@@ -48,14 +43,16 @@ WHERE REC.Id = :Id";
     $statement->bindValue(':country', $_POST['country'], PDO::PARAM_STR);
     $statement->bindValue(':topspeed', $_POST['topspeed'], PDO::PARAM_INT);
     $statement->bindValue(':height', $_POST['height'], PDO::PARAM_INT);
-
-    $statement->bindValue(':Id', $_GET['Id'], PDO::PARAM_INT);
+    $statement->bindValue(':built_year', $_POST['built_year'], PDO::PARAM_STR);
 
     /* EXECUTE THE CODE */
     $statement->execute();
+    /**
+     *echo 'The data has been modified, you will be redirected to the index page.';
+     */
+    $display = 'flex';
 
-
-    header('Refresh:70; url=index.php');
+    header('Refresh:3; url=index.php');
 } else {
 
 
@@ -68,17 +65,19 @@ WHERE REC.Id = :Id";
                  ,REC.country
                  ,REC.topspeed
                  ,REC.height
+                 ,REC.built_year
 
                 FROM RollercoasterOfEu AS REC
                 WHERE  REC.Id = :Id";
 
     // Prepare the statement
     $statement = $pdo->prepare($sql);
-    $statement->bindValue(':Id', $id, PDO::PARAM_INT);
+    $statement->bindValue(':Id', $_GET['Id'], PDO::PARAM_INT);
     $statement->execute();
 
     // Fetch the result
     $result = $statement->fetch(PDO::FETCH_OBJ);
+    $display = 'none';
 }
 ?>
 
@@ -96,7 +95,7 @@ WHERE REC.Id = :Id";
 <body>
     <div class="container ">
 
-        <div class="row" style="display:<?= $display ?? 'none'; ?>">
+        <div class="row" style="display:<?= $display ?? 'flex'; ?>">
             <div class="col-3"></div>
             <div class="col-6">
                 <div class="alert alert-success" role="alert">
@@ -121,31 +120,38 @@ WHERE REC.Id = :Id";
                     <label for="nameRoleerCoaster" class="form-label">name of the rollercoaster</label>
                     <input name="Name_ID" type="text" class="form-control" id="nameRoleerCoaster"
                         aria-describedby="rollercoaster" placeholder="Enter the name of the rollercoaster"
-                        value="<?= $result->Name_ID ?>">
+                        value="<?= $result->Name_ID ?? ''; ?>">
                 </div>
                 <div class="mb-3">
                     <label for="nameOfthePark" class="form-label">Name of the park</label>
                     <input name="park" type="text" class="form-control" id="nameOfthePark" aria-describedby="Park"
-                        placeholder="Enter the name of the park" value="<?= $result->park ?>">
+                        placeholder="Enter the name of the park" value="<?= $result->park ?? ''; ?>">
                 </div>
                 <div class="mb-3">
                     <label for="nameOftheCountry" class="form-label">Name of the country:</label>
                     <input name="country" type="text" class="form-control" id="nameOftheCountry"
                         aria-describedby="nameOftheCountry" placeholder="Enter the name of the country"
-                        value="<?= $result->country ?>">
+                        value="<?= $result->country ?? ''; ?>">
                 </div>
                 <div class="mb-3">
                     <label for="topSpeed" class="form-label">Top Speed:</label>
                     <input name="topspeed" type="number" min="0" max="255" class="form-control" id="topSpeed"
-                        aria-describedby="topSpeed" placeholder="Enter the Top Speed" value="<?= $result->topspeed ?>">
+                        aria-describedby="topSpeed" placeholder="Enter the Top Speed"
+                        value="<?= $result->topspeed ?? ''; ?>">
                 </div>
                 <div class="mb-3">
                     <label for="heights" class="form-label">Heights:</label>
                     <input name="height" type="number" min="0" max="255" class="form-control" id="heights"
-                        aria-describedby="heights" placeholder="Enter the heights" value="<?= $result->height ?>">
+                        aria-describedby="heights" placeholder="Enter the heights"
+                        value="<?= $result->height ?? ''; ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="builtYear" class="form-label">Built Year:</label>
+                    <input name="built_year" type="date" min="1900" class="form-control"
+                        id="builtYear" placeholder="Enter the built year" value="<?= $result->height ?? ''; ?>">
                 </div>
 
-                <input type="hidden" name="Id" value="<?= $result->Id ?>">
+                <input type="hidden" name="Id" value="<?= $result->Id ?? ''; ?>">
 
                 <div class="d-grid gap-2">
                     <button name="submit" type="submit" class="btn btn-primary btn-lg">Submit</button>

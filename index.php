@@ -29,6 +29,7 @@ $query = "SELECT  REC.Id
                  ,REC.country
                  ,REC.topspeed
                  ,REC.height
+                 ,REC.built_year
 
  FROM RollercoasterOfEu AS REC
  ORDER BY  REC.HEIGHT ASC";
@@ -91,6 +92,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                         <th>Country</th>
                         <th>TopSpeed</th>
                         <th>Height</th>
+                        <th>Built_Year</th>
                         <th>UPDATE</th>
                         <th>DELETE</th>
 
@@ -117,15 +119,17 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                                 <td><?= $rollercoaster->country ?></td>
                                 <td><?= $rollercoaster->topspeed ?></td>
                                 <td><?= $rollercoaster->height ?></td>
+                                <td><?= $rollercoaster->built_year ?></td>
                                 <td class="text-center">
                                     <a href="./update.php?Id=<?= $rollercoaster->Id ?>" class="text-primary">
-                                        <i class="bi bi-pencil-square"></i></a>
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
                                 </td>
                                 <td class="text-center ">
                                     <a href="./delete.php?Id=<?= $rollercoaster->Id ?>" class=" text text-danger">
-                                        <i class="bi bi-x-square-fill"></i>
+                                        <i class="bi bi-x-square-fill"></i></a>
                                 </td>
-                                </a>
+                                
                             </tr>
                         <?php endforeach; ?>
 
