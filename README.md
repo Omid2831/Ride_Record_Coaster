@@ -35,13 +35,13 @@ The EU Database Project is designed to create a MySQL database for storing and m
 In this demo, you can:
 
 - **Add New Roller Coasters**: Easily input details for new roller coasters and save them to the database. 📝
-  ![Add New Roller Coaster](img/modify.png)
+  ![Add New Roller Coaster]( img/update.png)
   
 - **View Roller Coaster Listings**: Browse a comprehensive list of roller coasters, sorted by height, to see which ones are the tallest in Europe. 📏
   ![View Roller Coaster Listings](img/View.png)
 
 - **Edit Existing Records**: Modify the details of any roller coaster, including its name, park, country, top speed, height, and built year. ✍️
-  ![Edit Roller Coaster](img/update.png)
+  ![Edit Roller Coaster](img/modify.png)
 
 - **Delete Records**: Remove roller coaster entries from the database with a simple click. 🗑️
   ![Delete Roller Coaster](img/demoDeleting.png)
