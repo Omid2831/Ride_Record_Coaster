@@ -84,7 +84,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
         </div>
 
         <div class="col-3"></div>
-        <div class="col-6 offset-md-3"> Adding new rollercoaster: <a href="./Create.php">
+        <div class="col-6 offset-md-3"> Adding new rollercoaster: <a href="create.php">
                 <i class="bi bi-plus-square-fill"></i>
             </a>
         </div>
@@ -126,7 +126,7 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                             <td><?= $rollercoaster->height ?></td>
                             <td><?= $rollercoaster->built_year ?></td>
                             <td class="text-center">
-                                <a href="./update.php?Id=<?= $rollercoaster->Id ?>" class="text-primary">
+                                <a href="update.php?Id=<?= $rollercoaster->Id ?>" class="text-primary">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
                             </td>
