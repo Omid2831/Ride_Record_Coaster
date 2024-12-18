@@ -61,7 +61,7 @@ In the demo, you can:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/omid2831/eu-database-project.git
+   git clone https://github.com/omid2831/Ride_Record_Coaster.git
    cd eu-database-project
    ```
 ---
