@@ -81,67 +81,67 @@ $result = $statement->fetchAll(PDO::FETCH_OBJ);
                 <h1 class=" text-center">Highest Parks in EU</h1>
             </div>
             <div class="col-2"></div>
-
-            <div class="col-3"></div>
-            <div class="col-6"> Adding new rollercoaster: <a href="./Create.php"><i
-                        class="bi bi-plus-square-fill"></i></a>
-                <table class="table table-hover">
-                    <thead>
-                        <th>Name of Rollercoster</th>
-                        <th>Name of the Park</th>
-                        <th>Country</th>
-                        <th>TopSpeed</th>
-                        <th>Height</th>
-                        <th>Built_Year</th>
-                        <th>UPDATE</th>
-                        <th>DELETE</th>
-
-                    </thead>
-                    <tbody>
-                        <!--here we are going to add foreach to set the databases-->
-                        <?php
-                        /*foreach ($result as $rollercoaster) 
-                          {
-                   echo " <tr>
-                  <td>$rollercoaster->Name_ID</td>
-                  <td>$rollercoaster->park</td>
-                  <td>$rollercoaster->country</td>
-                  <td>$rollercoaster->topspeed</td>
-                  <td>$rollercoaster->height</td>
-                          </tr>";
-                          }*/
-                        ?>
-
-                        <?php foreach ($result as $rollercoaster): ?>
-                            <tr>
-                                <td><?= $rollercoaster->Name_ID ?></td>
-                                <td><?= $rollercoaster->park ?></td>
-                                <td><?= $rollercoaster->country ?></td>
-                                <td><?= $rollercoaster->topspeed ?></td>
-                                <td><?= $rollercoaster->height ?></td>
-                                <td><?= $rollercoaster->built_year ?></td>
-                                <td class="text-center">
-                                    <a href="./update.php?Id=<?= $rollercoaster->Id ?>" class="text-primary">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </a>
-                                </td>
-                                <td class="text-center ">
-                                    <a href="./delete.php?Id=<?= $rollercoaster->Id ?>" class=" text text-danger">
-                                        <i class="bi bi-x-square-fill"></i></a>
-                                </td>
-                                
-                            </tr>
-                        <?php endforeach; ?>
-
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-3">
-
-            </div>
         </div>
 
+        <div class="col-3"></div>
+        <div class="col-6 offset-md-3"> Adding new rollercoaster: <a href="./Create.php">
+                <i class="bi bi-plus-square-fill"></i>
+            </a>
+        </div>
+
+        <div class="col-3 offset-md-3">
+            <table class="table table-hover">
+                <thead>
+                    <th>Name of Rollercoster</th>
+                    <th>Name of the Park</th>
+                    <th>Country</th>
+                    <th>TopSpeed</th>
+                    <th>Height</th>
+                    <th>Built_Year</th>
+                    <th>UPDATE</th>
+                    <th>DELETE</th>
+
+                </thead>
+                <tbody>
+                    <!--here we are going to add foreach to set the databases-->
+                    <?php
+                    /*foreach ($result as $rollercoaster) 
+                      {
+                        echo " <tr>
+                        <td>$rollercoaster->Name_ID</td>
+                        <td>$rollercoaster->park</td>
+                        <td>$rollercoaster->country</td>
+                        <td>$rollercoaster->topspeed</td>
+                        <td>$rollercoaster->height</td>
+                                </tr>";
+                                }*/
+                    ?>
+
+                    <?php foreach ($result as $rollercoaster): ?>
+                        <tr>
+                            <td><?= $rollercoaster->Name_ID ?></td>
+                            <td><?= $rollercoaster->park ?></td>
+                            <td><?= $rollercoaster->country ?></td>
+                            <td><?= $rollercoaster->topspeed ?></td>
+                            <td><?= $rollercoaster->height ?></td>
+                            <td><?= $rollercoaster->built_year ?></td>
+                            <td class="text-center">
+                                <a href="./update.php?Id=<?= $rollercoaster->Id ?>" class="text-primary">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a href="delete.php?Id=<?= $rollercoaster->Id; ?>" class="text-danger">
+                                    <i class="bi bi-x-square-fill"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

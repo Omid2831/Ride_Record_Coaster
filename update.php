@@ -146,9 +146,9 @@ WHERE REC.Id = :Id";
                         value="<?= $result->height ?? ''; ?>">
                 </div>
                 <div class="mb-3">
-                    <label for="builtYear" class="form-label">Built Year:</label>
-                    <input name="built_year" type="date" min="1900" class="form-control"
-                        id="builtYear" placeholder="Enter the built year" value="<?= $result->height ?? ''; ?>">
+                    <label for="built_year" class="form-label">Built Year:</label>
+                    <input name="built_year" type="date" min="1900" class="form-control" id="built_year"
+                    aria-describedby="built_year" placeholder="Enter the built year" value="<?= $result->built_year ?? ''; ?>">
                 </div>
 
                 <input type="hidden" name="Id" value="<?= $result->Id ?? ''; ?>">

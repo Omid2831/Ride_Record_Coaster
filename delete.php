@@ -18,10 +18,11 @@ $dsn = "mysql:host=$server;
  * and for more Enhancements we use the PDO-Object
  */
 $pdo = new PDO($dsn, $Database_username, $Database_password);
+
 /* Delete-query */
 
 $sql = "delete from RollercoasterOfEu
-where id = :Id";
+where Id = :Id";
 
 /* method prepare in de PDO */
 $statement = $pdo->prepare($sql);
@@ -34,7 +35,7 @@ $statement->execute();
 /* give the user a notification so they can see what is going on! */
 
 
-header('Refresh:3, url=index.php');
+header('Refresh:3; url=index.php');
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +57,7 @@ header('Refresh:3, url=index.php');
             <div class="col-2"></div>
             <div class="col-8">
                 <div class="alert alert-success text-center" role="alert">
-                    Data has been deleted!
+                    Data has been deleted!!!!
                 </div>
             </div>
             <div class="col-2"></div>
