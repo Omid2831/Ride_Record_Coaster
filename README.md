@@ -41,10 +41,11 @@ In this demo, you can:
   ![View Roller Coaster Listings](img/View.png)
 
 - **Edit Existing Records**: Modify the details of any roller coaster, including its name, park, country, top speed, height, and built year. ✍️
-  ![Edit Roller Coaster](img/demoDeleting.png)
+  ![Edit Roller Coaster](img/update.png)
 
 - **Delete Records**: Remove roller coaster entries from the database with a simple click. 🗑️
-  ![Delete Roller Coaster](img/demoDeleting.png) ![Delete Roller Coaster](img/delete.png)
+  ![Delete Roller Coaster](img/demoDeleting.png)
+ ![inalization of removal](img/delete.png)
 
 
 
