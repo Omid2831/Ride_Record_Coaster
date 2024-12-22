@@ -27,7 +27,7 @@ The EU Database Project is designed to create a MySQL database for storing and m
 
 - PHP: Server-side scripting language for backend development. 🖥️
 - MySQL: Database management system for storing roller coaster data. 🗃️
-- HTML/CSS: For structuring and styling the web pages. 🌐
+- HTML/CSS: This is used to structure and style the web pages. 🌐
 - Bootstrap: Frontend framework for responsive design. 📱
 
 ## Demo
@@ -35,16 +35,17 @@ The EU Database Project is designed to create a MySQL database for storing and m
 In this demo, you can:
 
 - **Add New Roller Coasters**: Easily input details for new roller coasters and save them to the database. 📝
-  ![Add New Roller Coaster]()
+  ![Add New Roller Coaster]( img/update.png)
   
 - **View Roller Coaster Listings**: Browse a comprehensive list of roller coasters, sorted by height, to see which ones are the tallest in Europe. 📏
-  ![View Roller Coaster Listings]()
+  ![View Roller Coaster Listings](img/View.png)
 
 - **Edit Existing Records**: Modify the details of any roller coaster, including its name, park, country, top speed, height, and built year. ✍️
-  ![Edit Roller Coaster]()
+  ![Edit Roller Coaster](img/modify.png)
 
 - **Delete Records**: Remove roller coaster entries from the database with a simple click. 🗑️
-  ![Delete Roller Coaster]()
+  ![Delete Roller Coaster](img/demoDeleting.png)
+ ![inalization of removal](img/delete.png)
 
 
 
@@ -60,7 +61,7 @@ In the demo, you can:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/omid2831/eu-database-project.git
+   git clone https://github.com/omid2831/Ride_Record_Coaster.git
    cd eu-database-project
    ```
 ---
