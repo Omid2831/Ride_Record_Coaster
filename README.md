@@ -10,10 +10,6 @@ The EU Database Project is designed to create a MySQL database for storing and m
 - [Technologies Used](#technologies-used) 💻
 - [Demo](#demo) 🎬
 - [Installation](#installation) ⚙️
-- [Usage](#usage) 📖
-- [Database Structure](#database-structure) 🗄️
-- [Contributing](#contributing) 🤝
-
 
 ## Features
 
