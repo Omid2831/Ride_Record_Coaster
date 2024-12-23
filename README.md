@@ -13,7 +13,7 @@ The EU Database Project is designed to create a MySQL database for storing and m
 - [Usage](#usage) 📖
 - [Database Structure](#database-structure) 🗄️
 - [Contributing](#contributing) 🤝
-- [License](#license) 📜
+
 
 ## Features
 
